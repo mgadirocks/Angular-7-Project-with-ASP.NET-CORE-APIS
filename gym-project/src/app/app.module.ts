@@ -5,7 +5,7 @@ import { BsDatepickerModule, } from 'ngx-bootstrap/datepicker';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms'
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
@@ -22,7 +22,8 @@ import { AllRoleComponent } from './RoleMaster/app.AllRole.component';
 import { EditRoleComponent } from './RoleMaster/app.EditRole.component';
 import { MemberRegistrationComponent } from './MemberRegistration/app.MemberRegistration.component';
 import { EditMemberRegistrationComponent } from './MemberRegistration/app.EditMemberRegistration.component';
-import { MatSortModule, MatPaginatorModule, MatFormFieldModule, MatInputModule, MatSnackBar, MatSnackBarConfig, MatSnackBarModule } from '@angular/material';
+// tslint:disable-next-line: max-line-length
+import { MatCardModule, MatButtonModule, MatCheckboxModule, MatSortModule, MatPaginatorModule, MatFormFieldModule, MatInputModule, MatSnackBar, MatSnackBarConfig, MatSnackBarModule } from '@angular/material';
 import { UserRegistrationComponent } from './CreateUsers/app.UserRegistration.component';
 import { AllUserRegistrationComponent } from './CreateUsers/app.AllUserRegistration.component';
 import { EditUserRegistrationComponent } from './CreateUsers/app.EditUserRegistration.component';
@@ -47,7 +48,7 @@ import { UserLogoutComponent } from './Login/app.UserLogout.Component';
 import { AdminAuthGuardService } from './AuthGuard/AdminAuthGuardService';
 import { UserAuthGuardService } from './AuthGuard/UserAuthGuardService';
 import { GenerateRecepitComponent } from './Recepit/app.generateRecepit.Component';
-
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,7 @@ import { GenerateRecepitComponent } from './Recepit/app.generateRecepit.Componen
 
     AppAdminLayoutComponent,
     AppUserLayoutComponent,
-    
+
     SchemeComponent,
     AllSchemeComponent,
     EditSchemeComponent,
@@ -90,20 +91,18 @@ import { GenerateRecepitComponent } from './Recepit/app.generateRecepit.Componen
   ],
   imports: [
     BrowserModule,
+    FontAwesomeModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
     BsDatepickerModule.forRoot(),
-    MatTableModule,
-    MatAutocompleteModule,
-    MatSortModule,
-    MatPaginatorModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSnackBarModule,
-
+    MatTableModule, MatAutocompleteModule,
+    MatSortModule, MatPaginatorModule,
+    MatFormFieldModule, MatInputModule,
+    MatSnackBarModule, MatCheckboxModule,
+    MatCardModule, MatButtonModule,
     RouterModule.forRoot([
       {
         path: 'Scheme',
@@ -136,9 +135,9 @@ import { GenerateRecepitComponent } from './Recepit/app.generateRecepit.Componen
         path: 'Member',
         component: AppUserLayoutComponent,
         children: [
-          { path: 'Add', component: MemberRegistrationComponent ,canActivate: [UserAuthGuardService]},
-          { path: 'Edit/:MemberId', component: EditMemberRegistrationComponent ,canActivate: [UserAuthGuardService]},
-          { path: 'All', component: MemberViewComponent ,canActivate: [UserAuthGuardService]}
+          { path: 'Add', component: MemberRegistrationComponent , canActivate: [UserAuthGuardService]},
+          { path: 'Edit/:MemberId', component: EditMemberRegistrationComponent , canActivate: [UserAuthGuardService]},
+          { path: 'All', component: MemberViewComponent , canActivate: [UserAuthGuardService]}
         ]
       },
       {
@@ -162,14 +161,14 @@ import { GenerateRecepitComponent } from './Recepit/app.generateRecepit.Componen
         path: 'Payment',
         component: AppUserLayoutComponent,
         children: [
-          { path: 'Details', component: PaymentOverviewComponent,canActivate: [UserAuthGuardService] }
+          { path: 'Details', component: PaymentOverviewComponent, canActivate: [UserAuthGuardService] }
         ]
       },
       {
         path: 'Renewal',
         component: AppUserLayoutComponent,
         children: [
-          { path: 'Renew', component: RenewalComponent ,canActivate: [UserAuthGuardService]  }
+          { path: 'Renew', component: RenewalComponent , canActivate: [UserAuthGuardService]  }
         ]
       },
 
@@ -185,8 +184,8 @@ import { GenerateRecepitComponent } from './Recepit/app.generateRecepit.Componen
         path: 'User',
         component: AppUserLayoutComponent,
         children: [
-          { path: 'Dashboard', component: UserDashboardComponent,canActivate: [UserAuthGuardService] },
-          { path: 'Recepit/:PaymentID', component: GenerateRecepitComponent,canActivate: [UserAuthGuardService] }
+          { path: 'Dashboard', component: UserDashboardComponent, canActivate: [UserAuthGuardService] },
+          { path: 'Recepit/:PaymentID', component: GenerateRecepitComponent, canActivate: [UserAuthGuardService] }
         ]
       },
       {
@@ -197,23 +196,23 @@ import { GenerateRecepitComponent } from './Recepit/app.generateRecepit.Componen
           { path: 'Yearwise', component: YearwiseReportComponent , canActivate: [AdminAuthGuardService] },
           { path: 'Monthwise', component: MonthwiseReportComponent, canActivate: [AdminAuthGuardService]  },
           { path: 'Renewal', component: RenewalReportComponent, canActivate: [AdminAuthGuardService]  }
-          
+
         ]
       },
 
-      
+
       { path: 'Login', component: LoginComponent },
       { path: 'AdminLogout', component: AdminLogoutComponent },
       { path: 'UserLogout', component: UserLogoutComponent },
-      
-      { path: '', redirectTo: "Login", pathMatch: 'full' },
-      { path: '**', redirectTo: "Login", pathMatch: 'full' },
+
+      { path: '', redirectTo: 'Login', pathMatch: 'full' },
+      { path: '**', redirectTo: 'Login', pathMatch: 'full' },
 
 
     ], { useHash: true })
   ],
   exports: [BsDatepickerModule],
-  providers: [DatePipe, AdminAuthGuardService,UserAuthGuardService],
+  providers: [DatePipe, AdminAuthGuardService, UserAuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

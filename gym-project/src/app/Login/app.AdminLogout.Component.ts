@@ -1,12 +1,10 @@
-import { Component, OnInit } from '@angular/core'
-import { Router } from '@angular/router'
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 @Component({
     template: ''
 })
-export class AdminLogoutComponent implements OnInit
-{
-    constructor(private _Route: Router)
-    {
+export class AdminLogoutComponent implements OnInit {
+    constructor(private _Route: Router) {
 
     }
     ngOnInit() {
@@ -14,4 +12,3 @@ export class AdminLogoutComponent implements OnInit
         this._Route.navigate(['Login']);
     }
 }
-

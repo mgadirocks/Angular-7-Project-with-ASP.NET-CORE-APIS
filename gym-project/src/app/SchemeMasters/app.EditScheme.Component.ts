@@ -9,23 +9,22 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 
 export class EditSchemeComponent implements OnInit {
-    title = "Edit Scheme Master";
+    title = 'Edit Scheme Master';
     SchemeForms: SchemeMasterModel = new SchemeMasterModel();
     private _SchemeService;
     private responsedata: any;
     private SchemeID: string;
     errorMessage: any;
-
-    constructor(private _Route: Router,private _routeParams: ActivatedRoute, private schemeService: SchemeService) {
+    hello: boolean;
+    constructor(private _Route: Router, private _routeParams: ActivatedRoute, private schemeService: SchemeService) {
         this._SchemeService = schemeService;
+        this.hello = false;
     }
 
-    ngOnInit() 
-    {
+    ngOnInit() {
         this.SchemeID = this._routeParams.snapshot.params['schemeId'];
-        if (this.SchemeID != null) 
-        {
-            var data = this._SchemeService.GetSchemeById(this.SchemeID).subscribe(
+        if (this.SchemeID != null) {
+            const data = this._SchemeService.GetSchemeById(this.SchemeID).subscribe(
                 Scheme => {
                     this.SchemeForms.SchemeID = Scheme.SchemeID;
                     this.SchemeForms.SchemeName = Scheme.SchemeName;

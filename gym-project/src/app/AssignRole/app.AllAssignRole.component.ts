@@ -15,8 +15,7 @@ import { AssignRolesViewModel } from './Models/AssignRolesViewModel';
     ]
 })
 
-export class AllAssignRoleComponent implements OnInit 
-{
+export class AllAssignRoleComponent implements OnInit {
     private _assignservice;
     @ViewChild(MatSort) sort: MatSort;
     @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -28,9 +27,8 @@ export class AllAssignRoleComponent implements OnInit
 
     ngOnInit(): void {
         this._assignservice.GetAllAssignedRoles().subscribe(
-            assignModel => 
-            {
-   
+            assignModel => {
+
                 this.dataSource = new MatTableDataSource(assignModel);
                 this.dataSource.sort = this.sort;
                 this.dataSource.paginator = this.paginator;
@@ -46,7 +44,7 @@ export class AllAssignRoleComponent implements OnInit
     applyFilter(filterValue: string) {
         this.dataSource.filter = filterValue.trim().toLowerCase();
       }
-      
+
       getNext(event: PageEvent) {
         this.offset = event.pageSize * event.pageIndex
         // call your api function here with the offset

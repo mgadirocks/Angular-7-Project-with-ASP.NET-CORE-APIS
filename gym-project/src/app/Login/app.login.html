@@ -26,7 +26,8 @@
                             <fieldset>
                                 <div class="form-group">
                                         <label for="name">Username</label>
-                                        <input autofocus type="text" class="form-control" name="Username" [(ngModel)]="LoginModel.Username" maxlength="50"
+                                        <input autofocus type="text" class="form-control" name="Username" 
+                                               [(ngModel)]="LoginModel.Username" maxlength="50"
                                             #refUsername="ngModel" id="Username" required>
                                         <div *ngIf="!refUsername.valid  && (refUsername.dirty || refUsername.touched)" class="alert alert-danger">
                                             <div [hidden]="!refUsername.errors.required">
@@ -46,7 +47,8 @@
                                         </div>
                                 </div>
                                 <!-- Change this to a button or input when using this as a form -->
-                                <button type="submit" [disabled]="!f.form.valid" class="btn btn-lg btn-success btn-block">Login</button>
+                                <button type="submit" [disabled]="!f.form.valid"
+                                        class="btn btn-lg btn-success btn-block">Login</button>
                             </fieldset>
                         </form>
                     </div>

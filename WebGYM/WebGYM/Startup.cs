@@ -134,7 +134,7 @@ namespace WebGYM
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                //Configure Swagger only for development purose not for production app.
+                //Configure Swagger only for development purpose not for production app.
                 app.UseSwaggerDocumentation();
             }
             else
@@ -144,9 +144,9 @@ namespace WebGYM
 
             app.UseStaticFiles();
             app.UseCookiePolicy();
-            app.UseAuthentication();
-
+            app.UseAuthentication(); 
             app.UseCors("CorsPolicy");
+
             #region OLD Working code for Swagger Configuration
 
             //// Enable middleware to serve generated Swagger as a JSON endpoint.

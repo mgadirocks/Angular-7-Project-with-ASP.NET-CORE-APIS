@@ -27,7 +27,7 @@ export class AllUserRegistrationComponent implements OnInit {
     ngOnInit() {
         this._userService.GetAllUsers().subscribe(
             allUsers => {
-                this.AllUserList = allUsers
+                this.AllUserList = allUsers;
                 this.dataSource = new MatTableDataSource(this.AllUserList);
                 this.dataSource.sort = this.sort;
                 this.dataSource.paginator = this.paginator;
@@ -40,20 +40,18 @@ export class AllUserRegistrationComponent implements OnInit {
         this.dataSource.filter = filterValue.trim().toLowerCase();
     }
     Delete(Id): void {
-        if (confirm("Are you sure to delete User ?")) {
+        if (confirm('Are you sure to delete User ?')) {
             this._userService.DeleteUser(Id).subscribe
                 (
                 response => {
                     if (response.StatusCode == "200") {
                         alert('Deleted User Successfully');
                         location.reload();
-                    }
-                    else {
+                    } else {
                         alert('Something Went Wrong');
                         this._Route.navigate(['/AllSchemeMaster']);
                     }
-                }
-                )
+                });
         }
     }
 

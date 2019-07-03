@@ -1,17 +1,14 @@
-import { Component, OnInit } from '@angular/core'
-import { Router } from '@angular/router'
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 @Component({
-    template:''
+    template: ''
 })
-export class UserLogoutComponent implements OnInit
-{
-    constructor(private _Route: Router)
-    {
+export class UserLogoutComponent implements OnInit {
+    constructor(private _Route: Router) {
 
     }
 
-    ngOnInit()
-    {
+    ngOnInit() {
         localStorage.removeItem('currentUser');
         this._Route.navigate(['Login']);
     }

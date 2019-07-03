@@ -10,54 +10,51 @@ import { MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition, MatSnackBar
 })
 
 export class SchemeComponent {
-    title = "Scheme Master";
+    title = 'Scheme Master';
     SchemeForms: SchemeMasterModel = new SchemeMasterModel();
     private _SchemeService;
     private responsedata: any;
-    
-    actionButtonLabel: string = 'Retry';
-    action: boolean = false;
-    setAutoHide: boolean = true;
-    autoHide: number = 2000;
+
+    actionButtonLabel = 'Retry';
+    action = false;
+    setAutoHide = true;
+    autoHide = 2000;
     verticalPosition: MatSnackBarVerticalPosition = 'top';
     horizontalPosition: MatSnackBarHorizontalPosition = 'center';
 
 
 
-    constructor(private _Route: Router,public snackBar: MatSnackBar,  private schemeService: SchemeService) {
+    constructor(private _Route: Router, public snackBar: MatSnackBar,  private schemeService: SchemeService) {
         this._SchemeService = schemeService;
     }
     output: any;
     onSubmit() {
-      
+
 
         this._SchemeService.SaveScheme(this.SchemeForms).subscribe(
-            response => 
-            {
-               
+            response => {
+
                 this.output = response;
-                if (this.output.StatusCode == "409") 
+                if (this.output.StatusCode == '409')
                 {
-                    let config = new MatSnackBarConfig();
+                    const config = new MatSnackBarConfig();
                     config.duration = this.setAutoHide ? this.autoHide : 0;
                     config.verticalPosition = this.verticalPosition;
-                    this.snackBar.open("Scheme Name Already Exists", this.action ? this.actionButtonLabel : undefined, config);
-                   
-                }
-                else if (this.output.StatusCode == "200") 
-                { 
-                    let config = new MatSnackBarConfig();
+                    this.snackBar.open('Scheme Name Already Exists', this.action ? this.actionButtonLabel : undefined, config);
+
+                } else if (this.output.StatusCode == '200')
+                {
+                    const config = new MatSnackBarConfig();
                     config.duration = this.setAutoHide ? this.autoHide : 0;
                     config.verticalPosition = this.verticalPosition;
-                    this.snackBar.open("Saved Scheme Successfully", this.action ? this.actionButtonLabel : undefined, config);
+                    this.snackBar.open('Saved Scheme Successfully', this.action ? this.actionButtonLabel : undefined, config);
                     this._Route.navigate(['/Scheme/All']);
-                }
-                else {
-                    let config = new MatSnackBarConfig();
+                } else {
+                    const config = new MatSnackBarConfig();
                     config.duration = this.setAutoHide ? this.autoHide : 0;
                     config.verticalPosition = this.verticalPosition;
-                    this.snackBar.open("Something Went Wrong", this.action ? this.actionButtonLabel : undefined, config);
-                   
+                    this.snackBar.open('Something Went Wrong', this.action ? this.actionButtonLabel : undefined, config);
+
                 }
             }
         );
