@@ -3,6 +3,8 @@
 <div class="panel panel-default">
     <div class="panel-heading">Add Role</div>
     <div class="panel-body">
+        <i class="fa fa-heart fa-5x " *ngIf="heartStatus" style="color: red" (click)="toggleHeart(false)"></i>
+        <i class="fa fa-heart-o fa-5x " *ngIf="!heartStatus" style="color: grey" (click)="toggleHeart(true)"></i>
         <form #f="ngForm" novalidate (ngSubmit)="onSubmit()">
             <div class="row">
                 <div class="col-md-4">

@@ -18,7 +18,9 @@ export class LoginService {
     private apiUrl = environment.apiEndpoint + '/api/Authenticate/';
 
     public validateLoginUser(loginmodel: LoginModel) {
-        const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+        const headers = new HttpHeaders(
+            { 'Content-Type': 'application/json'}
+        );
         return this._http.post<any>(this.apiUrl, loginmodel, { headers: headers })
             .pipe(tap(data => {
                 console.log(data);

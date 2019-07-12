@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BsDatepickerModule, } from 'ngx-bootstrap/datepicker';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
@@ -9,7 +9,10 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { DatePipe } from '@angular/common';
 import { MatTableModule } from '@angular/material/table';
-import { MatAutocomplete, MatAutocompleteModule } from '@angular/material/autocomplete';
+import {
+  MatAutocomplete,
+  MatAutocompleteModule
+} from '@angular/material/autocomplete';
 import { AppComponent } from './app.component';
 import { SchemeComponent } from './SchemeMasters/app.Scheme.Component';
 import { AllSchemeComponent } from './SchemeMasters/app.AllScheme.Component';
@@ -23,7 +26,18 @@ import { EditRoleComponent } from './RoleMaster/app.EditRole.component';
 import { MemberRegistrationComponent } from './MemberRegistration/app.MemberRegistration.component';
 import { EditMemberRegistrationComponent } from './MemberRegistration/app.EditMemberRegistration.component';
 // tslint:disable-next-line: max-line-length
-import { MatCardModule, MatButtonModule, MatCheckboxModule, MatSortModule, MatPaginatorModule, MatFormFieldModule, MatInputModule, MatSnackBar, MatSnackBarConfig, MatSnackBarModule } from '@angular/material';
+import {
+  MatCardModule,
+  MatButtonModule,
+  MatCheckboxModule,
+  MatSortModule,
+  MatPaginatorModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatSnackBar,
+  MatSnackBarConfig,
+  MatSnackBarModule
+} from '@angular/material';
 import { UserRegistrationComponent } from './CreateUsers/app.UserRegistration.component';
 import { AllUserRegistrationComponent } from './CreateUsers/app.AllUserRegistration.component';
 import { EditUserRegistrationComponent } from './CreateUsers/app.EditUserRegistration.component';
@@ -48,7 +62,6 @@ import { UserLogoutComponent } from './Login/app.UserLogout.Component';
 import { AdminAuthGuardService } from './AuthGuard/AdminAuthGuardService';
 import { UserAuthGuardService } from './AuthGuard/UserAuthGuardService';
 import { GenerateRecepitComponent } from './Recepit/app.generateRecepit.Component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -91,84 +104,165 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   ],
   imports: [
     BrowserModule,
-    FontAwesomeModule,
+
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
     BsDatepickerModule.forRoot(),
-    MatTableModule, MatAutocompleteModule,
-    MatSortModule, MatPaginatorModule,
-    MatFormFieldModule, MatInputModule,
-    MatSnackBarModule, MatCheckboxModule,
-    MatCardModule, MatButtonModule,
+    MatTableModule,
+    MatAutocompleteModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSnackBarModule,
+    MatCheckboxModule,
+    MatCardModule,
+    MatButtonModule,
     RouterModule.forRoot([
       {
         path: 'Scheme',
         component: AppAdminLayoutComponent,
         children: [
-          { path: 'Add', component: SchemeComponent , canActivate: [AdminAuthGuardService] },
-          { path: 'Edit/:schemeId', component: EditSchemeComponent , canActivate: [AdminAuthGuardService] },
-          { path: 'All', component: AllSchemeComponent, canActivate: [AdminAuthGuardService]  }
+          {
+            path: 'Add',
+            component: SchemeComponent,
+            canActivate: [AdminAuthGuardService]
+          },
+          {
+            path: 'Edit/:schemeId',
+            component: EditSchemeComponent,
+            canActivate: [AdminAuthGuardService]
+          },
+          {
+            path: 'All',
+            component: AllSchemeComponent,
+            canActivate: [AdminAuthGuardService]
+          }
         ]
       },
       {
         path: 'Plan',
         component: AppAdminLayoutComponent,
         children: [
-          { path: 'Add', component: PlanMasterComponent , canActivate: [AdminAuthGuardService] },
-          { path: 'Edit/:PlanID', component: EditPlanComponent , canActivate: [AdminAuthGuardService] },
-          { path: 'All', component: AllPlanMasterComponent , canActivate: [AdminAuthGuardService] }
+          {
+            path: 'Add',
+            component: PlanMasterComponent,
+            canActivate: [AdminAuthGuardService]
+          },
+          {
+            path: 'Edit/:PlanID',
+            component: EditPlanComponent,
+            canActivate: [AdminAuthGuardService]
+          },
+          {
+            path: 'All',
+            component: AllPlanMasterComponent,
+            canActivate: [AdminAuthGuardService]
+          }
         ]
       },
       {
         path: 'Role',
         component: AppAdminLayoutComponent,
         children: [
-          { path: 'Add', component: RoleComponent , canActivate: [AdminAuthGuardService] },
-          { path: 'Edit/:RoleID', component: EditRoleComponent , canActivate: [AdminAuthGuardService] },
-          { path: 'All', component: AllRoleComponent , canActivate: [AdminAuthGuardService] }
+          {
+            path: 'Add',
+            component: RoleComponent,
+            canActivate: [AdminAuthGuardService]
+          },
+          {
+            path: 'Edit/:RoleID',
+            component: EditRoleComponent,
+            canActivate: [AdminAuthGuardService]
+          },
+          {
+            path: 'All',
+            component: AllRoleComponent,
+            canActivate: [AdminAuthGuardService]
+          }
         ]
       },
       {
         path: 'Member',
         component: AppUserLayoutComponent,
         children: [
-          { path: 'Add', component: MemberRegistrationComponent , canActivate: [UserAuthGuardService]},
-          { path: 'Edit/:MemberId', component: EditMemberRegistrationComponent , canActivate: [UserAuthGuardService]},
-          { path: 'All', component: MemberViewComponent , canActivate: [UserAuthGuardService]}
+          {
+            path: 'Add',
+            component: MemberRegistrationComponent,
+            canActivate: [UserAuthGuardService]
+          },
+          {
+            path: 'Edit/:MemberId',
+            component: EditMemberRegistrationComponent,
+            canActivate: [UserAuthGuardService]
+          },
+          {
+            path: 'All',
+            component: MemberViewComponent,
+            canActivate: [UserAuthGuardService]
+          }
         ]
       },
       {
         path: 'User',
         component: AppAdminLayoutComponent,
         children: [
-          { path: 'Add', component: UserRegistrationComponent , canActivate: [AdminAuthGuardService] },
-          { path: 'Edit/:UserId', component: EditUserRegistrationComponent , canActivate: [AdminAuthGuardService] },
-          { path: 'All', component: AllUserRegistrationComponent, canActivate: [AdminAuthGuardService]  }
+          {
+            path: 'Add',
+            component: UserRegistrationComponent,
+            canActivate: [AdminAuthGuardService]
+          },
+          {
+            path: 'Edit/:UserId',
+            component: EditUserRegistrationComponent,
+            canActivate: [AdminAuthGuardService]
+          },
+          {
+            path: 'All',
+            component: AllUserRegistrationComponent,
+            canActivate: [AdminAuthGuardService]
+          }
         ]
       },
       {
         path: 'Assign',
         component: AppAdminLayoutComponent,
         children: [
-          { path: 'Role', component: AssignRoleComponent , canActivate: [AdminAuthGuardService] },
-          { path: 'AllRole', component: AllAssignRoleComponent , canActivate: [AdminAuthGuardService] }
+          {
+            path: 'Role',
+            component: AssignRoleComponent,
+            canActivate: [AdminAuthGuardService]
+          },
+          {
+            path: 'AllRole',
+            component: AllAssignRoleComponent,
+            canActivate: [AdminAuthGuardService]
+          }
         ]
       },
       {
         path: 'Payment',
         component: AppUserLayoutComponent,
         children: [
-          { path: 'Details', component: PaymentOverviewComponent, canActivate: [UserAuthGuardService] }
+          {
+            path: 'Details',
+            component: PaymentOverviewComponent,
+            canActivate: [UserAuthGuardService]
+          }
         ]
       },
       {
         path: 'Renewal',
         component: AppUserLayoutComponent,
         children: [
-          { path: 'Renew', component: RenewalComponent , canActivate: [UserAuthGuardService]  }
+          {
+            path: 'Renew',
+            component: RenewalComponent,
+            canActivate: [UserAuthGuardService]
+          }
         ]
       },
 
@@ -176,43 +270,68 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
         path: 'Admin',
         component: AppAdminLayoutComponent,
         children: [
-          { path: 'Dashboard', component: AdminDashboardComponent , canActivate: [AdminAuthGuardService]  }
-
+          {
+            path: 'Dashboard',
+            component: AdminDashboardComponent,
+            canActivate: [AdminAuthGuardService]
+          }
         ]
       },
       {
         path: 'User',
         component: AppUserLayoutComponent,
         children: [
-          { path: 'Dashboard', component: UserDashboardComponent, canActivate: [UserAuthGuardService] },
-          { path: 'Recepit/:PaymentID', component: GenerateRecepitComponent, canActivate: [UserAuthGuardService] }
+          {
+            path: 'Dashboard',
+            component: UserDashboardComponent,
+            canActivate: [UserAuthGuardService]
+          },
+          {
+            path: 'Recepit/:PaymentID',
+            component: GenerateRecepitComponent,
+            canActivate: [UserAuthGuardService]
+          }
         ]
       },
       {
         path: 'Report',
         component: AppAdminLayoutComponent,
         children: [
-          { path: 'Member', component: MemberDetailsReportComponent, canActivate: [AdminAuthGuardService]  },
-          { path: 'Yearwise', component: YearwiseReportComponent , canActivate: [AdminAuthGuardService] },
-          { path: 'Monthwise', component: MonthwiseReportComponent, canActivate: [AdminAuthGuardService]  },
-          { path: 'Renewal', component: RenewalReportComponent, canActivate: [AdminAuthGuardService]  }
-
+          {
+            path: 'Member',
+            component: MemberDetailsReportComponent,
+            canActivate: [AdminAuthGuardService]
+          },
+          {
+            path: 'Yearwise',
+            component: YearwiseReportComponent,
+            canActivate: [AdminAuthGuardService]
+          },
+          {
+            path: 'Monthwise',
+            component: MonthwiseReportComponent,
+            canActivate: [AdminAuthGuardService]
+          },
+          {
+            path: 'Renewal',
+            component: RenewalReportComponent,
+            canActivate: [AdminAuthGuardService]
+          }
         ]
       },
-
 
       { path: 'Login', component: LoginComponent },
       { path: 'AdminLogout', component: AdminLogoutComponent },
       { path: 'UserLogout', component: UserLogoutComponent },
 
       { path: '', redirectTo: 'Login', pathMatch: 'full' },
-      { path: '**', redirectTo: 'Login', pathMatch: 'full' },
-
-
-    ], { useHash: true })
+      { path: '**', redirectTo: 'Login', pathMatch: 'full' }
+    ])
   ],
   exports: [BsDatepickerModule],
   providers: [DatePipe, AdminAuthGuardService, UserAuthGuardService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor() {}
+}
