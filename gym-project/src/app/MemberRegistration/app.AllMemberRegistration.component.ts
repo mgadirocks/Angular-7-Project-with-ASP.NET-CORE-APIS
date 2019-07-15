@@ -5,7 +5,9 @@ import { MemberRegistrationModel } from './Models/app.memberRegistrationModel';
 import { MemberRegistrationService } from './Services/app.MemberRegistration.service';
 import { DatePipe } from '@angular/common';
 import { MemberRegistrationGridModel } from './Models/app.MemberRegistrationGridModel';
-import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { PaginationService } from '../Shared/PaginationService';
 
 @Component({

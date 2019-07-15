@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { SchemeMasterModel } from './app.SchemeModel';
 import { SchemeService } from './Services/app.Scheme.Service';
 import { Router } from '@angular/router';
-import { MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition, MatSnackBarConfig, MatSnackBar } from '@angular/material';
+import { MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition, MatSnackBarConfig, MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
     templateUrl: './app.SchemeMaster.html',

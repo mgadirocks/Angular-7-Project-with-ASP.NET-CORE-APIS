@@ -3,7 +3,9 @@ import { UserModel } from './Models/app.UserModel';
 import { UserService } from './Services/app.UserRegistration.Service';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
     templateUrl: './app.AllUserRegistration.html',

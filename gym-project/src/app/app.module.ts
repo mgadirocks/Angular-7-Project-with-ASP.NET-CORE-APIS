@@ -26,18 +26,14 @@ import { EditRoleComponent } from './RoleMaster/app.EditRole.component';
 import { MemberRegistrationComponent } from './MemberRegistration/app.MemberRegistration.component';
 import { EditMemberRegistrationComponent } from './MemberRegistration/app.EditMemberRegistration.component';
 // tslint:disable-next-line: max-line-length
-import {
-  MatCardModule,
-  MatButtonModule,
-  MatCheckboxModule,
-  MatSortModule,
-  MatPaginatorModule,
-  MatFormFieldModule,
-  MatInputModule,
-  MatSnackBar,
-  MatSnackBarConfig,
-  MatSnackBarModule
-} from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSnackBar, MatSnackBarConfig, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatSortModule } from '@angular/material/sort';
 import { UserRegistrationComponent } from './CreateUsers/app.UserRegistration.component';
 import { AllUserRegistrationComponent } from './CreateUsers/app.AllUserRegistration.component';
 import { EditUserRegistrationComponent } from './CreateUsers/app.EditUserRegistration.component';

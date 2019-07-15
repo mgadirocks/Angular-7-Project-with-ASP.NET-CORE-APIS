@@ -1,7 +1,8 @@
 import { OnInit, Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { RenewalService } from './Services/app.renewal.Service';
-import { MatAutocomplete, MatSnackBar, MatSnackBarConfig, MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition } from '@angular/material';
+import { MatAutocomplete } from '@angular/material/autocomplete';
+import { MatSnackBar, MatSnackBarConfig, MatSnackBarVerticalPosition, MatSnackBarHorizontalPosition } from '@angular/material/snack-bar';
 import { RequestMemberModel } from './Models/app.RequestMemberModel';
 import { ResponseMemberModel } from './Models/app.ResponseMemberModel';
 import { RenewalModel } from './Models/app.RenewalModel';

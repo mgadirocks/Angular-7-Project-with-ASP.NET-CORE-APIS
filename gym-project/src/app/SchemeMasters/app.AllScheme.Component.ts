@@ -3,7 +3,9 @@ import { SchemeService } from './Services/app.Scheme.Service';
 import { SchemeMasterViewModel } from './Models/app.SchemeViewModel';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
-import { MatTableDataSource, MatSort, MatPaginator } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   templateUrl: './app.AllSchemeComponent.html',
